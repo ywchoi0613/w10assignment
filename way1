@@ -4,7 +4,7 @@ using namespace std;
 class hw3 {
 public:
 	// constructor
-	hw3() {}
+	hw3() { N1 = 5; N2 = 10; a = 2; b = 3; x0 = -5; dx = 0.1; m = 10; }
 	hw3(int z1, int z2, float z3, float z4, float z5, float z6, int z7) {
 		N1 = z1; N2 = z2; a = z3; b = z4; x0 = z5; dx = z6; m = z7;
 	}
@@ -13,27 +13,28 @@ public:
 	float a, b, x0, dx;
 	// member function
 	int func1(int* e) {
+		e = new int[N2 - N1 + 1];
 		int d = 0, i, j;
-		for (int i = N1, int j = 0; i <= N2; i++, j++) {
+		for (i = N1, j = 0; i <= N2; i++, j++) {
 			d += i;
 			e[j] = d;
 		}
 		return d;
 	}
 	float func2(float* f) {
-		float g = 0, x;
+		f = new float[m];
+		float x;
 		int i;
-		for (float x = x0, int i = 0; x <= x + (m - 1) * dx; x += dx, i++) {
+		for (x = x0, i = 0; i < m; x += dx, i++) {
 			f[i] = a * x + b;
-			g += f[i];
 		}
-		return g;
+		return 0;
 	}
 };
 void main() {
 	hw3 akali, amumu, annie, ashe;
-	int* ii1, * ii2, * ii3, * ii4, j1, j2, j3, j4;
-	float* ff1, * ff2, * ff3, * ff4, k1, k2, k3, k4;
+	int ii1[100], ii2[100], ii3[100],ii4[100], j1, j2, j3, j4;
+	float ff1[100], ff2[100], ff3[100], ff4[100], k1, k2, k3, k4;
 	akali = hw3(5, 10, 2, 3, -5, 0.1, 10);
 	amumu = hw3(7, 100, -3.5, 4, 100, 10, 15);
 	annie = hw3(12, 17, 0.01, 0.2, 1.5, 0.08, 20);
