@@ -1,0 +1,72 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+class hw3 {
+public:
+	// constructor
+	hw3() {}
+	hw3(int z1, int z2, float z3, float z4, float z5, float z6, int z7) {
+		N1 = z1; N2 = z2; a = z3; b = z4; x0 = z5; dx = z6; m = z7;
+	}
+	//member data
+	int N1, N2, m;
+	float a, b, x0, dx;
+	// member function
+	int func1(int* e) {
+		int d = 0, i, j;
+		for (int i = N1, int j = 0; i <= N2; i++, j++) {
+			d += i;
+			e[j] = d;
+		}
+		return d;
+	}
+	float func2(float* f) {
+		float g = 0, x;
+		int i;
+		for (float x = x0, int i = 0; x <= x + (m - 1) * dx; x += dx, i++) {
+			f[i] = a * x + b;
+			g += f[i];
+		}
+		return g;
+	}
+};
+void main() {
+	hw3 akali, amumu, annie, ashe;
+	int* ii1, * ii2, * ii3, * ii4, j1, j2, j3, j4;
+	float* ff1, * ff2, * ff3, * ff4, k1, k2, k3, k4;
+	akali = hw3(5, 10, 2, 3, -5, 0.1, 10);
+	amumu = hw3(7, 100, -3.5, 4, 100, 10, 15);
+	annie = hw3(12, 17, 0.01, 0.2, 1.5, 0.08, 20);
+	ashe = hw3(10, 20, 4.2, -5.3, 2.1, 0.2, 5);
+	j1 = akali.func1(ii1);
+	j2 = amumu.func1(ii2);
+	j3 = annie.func1(ii3);
+	j4 = ashe.func1(ii4);
+	k1 = akali.func2(ff1);
+	k2 = amumu.func2(ff2);
+	k3 = annie.func2(ff3);
+	k4 = ashe.func2(ff4);
+	ofstream ak("akali", ios::binary | ios::out);
+	ak << akali.N1 << akali.N2 << "\n" << akali.a << akali.b << akali.x0 << akali.dx << "\n" << akali.m;
+	ak.write((char*)ii1, sizeof(ii1));
+	ak.write((char*)ff1, sizeof(ff1));
+	ak.close();
+
+	ofstream am("amumu", ios::binary | ios::out);
+	am << amumu.N1 << amumu.N2 << "\n" << amumu.a << amumu.b << amumu.x0 << amumu.dx << "\n" << amumu.m;
+	am.write((char*)ii2, sizeof(ii2));
+	am.write((char*)ff2, sizeof(ff2));
+	am.close();
+
+	ofstream an("annie", ios::binary | ios::out);
+	an << annie.N1 << annie.N2 << "\n" << annie.a << annie.b << annie.x0 << annie.dx << "\n" << annie.m;
+	an.write((char*)ii3, sizeof(ii3));
+	an.write((char*)ff3, sizeof(ff3));
+	an.close();
+
+	ofstream as("ashe", ios::binary | ios::out);
+	as << ashe.N1 << ashe.N2 << "\n" << ashe.a << ashe.b << ashe.x0 << ashe.dx << "\n" << ashe.m;
+	as.write((char*)ii1, sizeof(ii1));
+	as.write((char*)ff1, sizeof(ff1));
+	as.close();
+}
