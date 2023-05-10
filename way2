@@ -33,8 +33,8 @@ public:
 	void func3(string ss, int* ii, float* ff) {
 		ofstream outf(ss, ios::binary | ios::out);
 		outf << N1 << N2 << "\n" << a << b << x0 << dx << "\n" << m;
-		outf.write((char*)ii, sizeof(ii));
-		outf.write((char*)ff, sizeof(ff));
+		outf.write((char*)ii, (N2-N1+1)*sizeof(int));
+		outf.write((char*)ff, m*sizeof(float));
 		outf.close();
 	}
 };
