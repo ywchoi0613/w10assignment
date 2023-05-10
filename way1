@@ -46,25 +46,25 @@ void main() {
 	k4 = ashe.func2(ff4);
 	ofstream ak("akali.dat", ios::binary | ios::out);
 	ak << akali.N1 << akali.N2 << "\n" << akali.a << akali.b << akali.x0 << akali.dx << "\n" << akali.m;
-	ak.write((char*)ii1, sizeof(ii1));
-	ak.write((char*)ff1, sizeof(ff1));
+	ak.write((char*)ii1, (akali.N2-akali.N1+1)*sizeof(int));
+	ak.write((char*)ff1, akali.m*sizeof(float));
 	ak.close();
 
 	ofstream am("amumu.dat", ios::binary | ios::out);
 	am << amumu.N1 << amumu.N2 << "\n" << amumu.a << amumu.b << amumu.x0 << amumu.dx << "\n" << amumu.m;
-	am.write((char*)ii2, sizeof(ii2));
-	am.write((char*)ff2, sizeof(ff2));
+	am.write((char*)ii2, (amumu.N2 - amumu.N1 + 1) * sizeof(int));
+	am.write((char*)ff2, amumu.m*sizeof(float));
 	am.close();
 
 	ofstream an("annie.dat", ios::binary | ios::out);
 	an << annie.N1 << annie.N2 << "\n" << annie.a << annie.b << annie.x0 << annie.dx << "\n" << annie.m;
-	an.write((char*)ii3, sizeof(ii3));
-	an.write((char*)ff3, sizeof(ff3));
+	an.write((char*)ii3, (annie.N2 - annie.N1 + 1) * sizeof(int));
+	an.write((char*)ff3, annie.m*sizeof(float));
 	an.close();
 
 	ofstream as("ashe.dat", ios::binary | ios::out);
 	as << ashe.N1 << ashe.N2 << "\n" << ashe.a << ashe.b << ashe.x0 << ashe.dx << "\n" << ashe.m;
-	as.write((char*)ii4, sizeof(ii4));
-	as.write((char*)ff4, sizeof(ff4));
+	as.write((char*)ii4, (ashe.N2 - ashe.N1 + 1) * sizeof(int));
+	as.write((char*)ff4, ashe.m*sizeof(float));
 	as.close();
 }
