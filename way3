@@ -47,25 +47,25 @@ void main() {
 	k2 = amumu->func2(ff2);
 	k3 = annie->func2(ff3);
 	k4 = ashe->func2(ff4);
-	ofstream ak("akali", ios::binary | ios::out);
+	ofstream ak("akali.dat", ios::binary | ios::out);
 	ak << akali->N1 << akali->N2 << "\n" << akali->a << akali->b << akali->x0 << akali->dx << "\n" << akali->m;
 	ak.write((char*)ii1, sizeof(ii1));
 	ak.write((char*)ff1, sizeof(ff1));
 	ak.close();
 
-	ofstream am("amumu", ios::binary | ios::out);
+	ofstream am("amumu.dat", ios::binary | ios::out);
 	am << amumu->N1 << amumu->N2 << "\n" << amumu->a << amumu->b << amumu->x0 << amumu->dx << "\n" << amumu->m;
 	am.write((char*)ii2, sizeof(ii2));
 	am.write((char*)ff2, sizeof(ff2));
 	am.close();
 
-	ofstream an("annie", ios::binary | ios::out);
+	ofstream an("annie.dat", ios::binary | ios::out);
 	an << annie->N1 << annie->N2 << "\n" << annie->a << annie->b << annie->x0 << annie->dx << "\n" << annie->m;
 	an.write((char*)ii3, sizeof(ii3));
 	an.write((char*)ff3, sizeof(ff3));
 	an.close();
 
-	ofstream as("ashe", ios::binary | ios::out);
+	ofstream as("ashe.dat", ios::binary | ios::out);
 	as << ashe->N1 << ashe->N2 << "\n" << ashe->a << ashe->b << ashe->x0 << ashe->dx << "\n" << ashe->m;
 	as.write((char*)ii4, sizeof(ii4));
 	as.write((char*)ff4, sizeof(ff4));
