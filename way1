@@ -64,7 +64,7 @@ void main() {
 
 	ofstream as("ashe", ios::binary | ios::out);
 	as << ashe.N1 << ashe.N2 << "\n" << ashe.a << ashe.b << ashe.x0 << ashe.dx << "\n" << ashe.m;
-	as.write((char*)ii1, sizeof(ii1));
-	as.write((char*)ff1, sizeof(ff1));
+	as.write((char*)ii4, sizeof(ii4));
+	as.write((char*)ff4, sizeof(ff4));
 	as.close();
 }
