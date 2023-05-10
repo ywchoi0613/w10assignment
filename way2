@@ -1,0 +1,63 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+class hw3 {
+public:
+	// constructor
+	hw3() { N1 = 0; N2 = 0; a = 0; b = 0; x0 = 0; dx = 0; m = 0; }
+	hw3(int z1, int z2, float z3, float z4, float z5, float z6, int z7) {
+		N1 = z1; N2 = z2; a = z3; b = z4; x0 = z5; dx = z6; m = z7;
+	}
+	//member data
+	int N1, N2, m;
+	float a, b, x0, dx;
+	// member function
+	int func1(int* e) {
+		e = new int[N2 - N1 + 1];
+		int d = 0, i, j;
+		for (i = N1, j = 0; i <= N2; i++, j++) {
+			d += i;
+			e[j] = d;
+		}
+		return d;
+	}
+	float func2(float* f) {
+		f = new float[m];
+		float x;
+		int i;
+		for (x = x0, i = 0; i < m; x += dx, i++) {
+			f[i] = a * x + b;
+		}
+		return 0;
+	}
+	void func3(string ss, int* ii, float* ff) {
+		ofstream outf(ss, ios::binary | ios::out);
+		outf << N1 << N2 << "\n" << a << b << x0 << dx << "\n" << m;
+		outf.write((char*)ii, sizeof(ii));
+		outf.write((char*)ff, sizeof(ff));
+		outf.close();
+	}
+};
+void main() {
+	hw3* akali, * amumu, * annie, * ashe;
+	akali = new hw3(5, 10, 2, 3, -5, 0.1, 10);
+	amumu = new hw3(7, 100, -3.5, 4, 100, 10, 15);
+	annie = new hw3(12, 17, 0.01, 0.2, 1.5, 0.08, 20);
+	ashe = new hw3(10, 20, 4.2, -5.3, 2.1, 0.2, 5);
+	int ii1[100], ii2[100], ii3[100], ii4[100], j1, j2, j3, j4;
+	float ff1[100], ff2[100], ff3[100], ff4[100], k1, k2, k3, k4;
+	j1 = akali->func1(ii1);
+	j2 = amumu->func1(ii2);
+	j3 = annie->func1(ii3);
+	j4 = ashe->func1(ii4);
+	k1 = akali->func2(ff1);
+	k2 = amumu->func2(ff2);
+	k3 = annie->func2(ff3);
+	k4 = ashe->func2(ff4);
+	akali->func3("akali.dat", ii1, ff1);
+	amumu->func3("amumu.dat", ii2, ff2);
+	annie->func3("annie.dat", ii3, ff3);
+	ashe->func3("ashe.dat", ii4, ff4);
+	
+	delete akali, amumu, annie, ashe, ii1, ii2, ii3, ii4, ff1, ff2, ff3, ff4;
+}
